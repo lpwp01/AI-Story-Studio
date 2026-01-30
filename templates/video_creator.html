@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/video.css') }}">
+<style>
+    .voice-card { background: white; padding: 20px; border-radius: 20px; margin-bottom: 25px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; }
+    .voice-card select { flex: 1; border: none; font-size: 1.1rem; font-weight: 600; color: #ff007a; outline: none; cursor: pointer; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="studio-wrapper">
+    <div class="studio-container">
+        <h1 class="studio-title">AI Video <span style="color: #ff007a;">Studio</span></h1>
+        <p class="studio-subtitle">Professional stories with human-like AI voices.</p>
+
+        <!-- VOICE SELECTION -->
+        <div class="voice-card">
+            <i class="fas fa-microphone-lines fa-2x" style="color: #00d4ff;"></i>
+            <select id="voiceSelect">
+                <option value="hi-IN-SwaraNeural">Hindi Female - Swara (Natural)</option>
+                <option value="hi-IN-MadhurNeural">Hindi Male - Madhur</option>
+                <option value="en-IN-NeerjaNeural">English Indian Female - Neerja</option>
+                <option value="en-US-AvaNeural">English US Female - Ava</option>
+                <option value="en-US-AndrewNeural">English US Male - Andrew</option>
+                <option value="en-GB-SoniaNeural">English UK Female - Sonia</option>
+            </select>
+        </div>
+
+        <textarea id="prompt" class="story-input" placeholder="Write your story here... Use full stop (.) for scenes."></textarea>
+        <br>
+        <button onclick="generateVideo()" id="genBtn" class="gen-movie-btn">
+            <i class="fas fa-clapperboard"></i> Create Movie
+        </button>
+
+        <div id="progressContainer" class="progress-section">
+            <div id="stepText" class="step-counter">Step 0 / 5</div>
+            <div class="progress-bar-container">
+                <div id="loaderFill" class="progress-bar-fill"></div>
+            </div>
+            <p id="statusMsg" class="status-label">Initializing Natural Voices...</p>
+        </div>
+
+        <div id="result" style="display:none; margin-top:40px;">
+            <div class="video-frame">
+                <video id="videoPlayer" controls></video>
+            </div>
+            <div style="margin-top: 25px; display: flex; justify-content: center; gap: 15px;">
+                <a id="downloadBtn" href="javascript:void(0)" class="btn-download" style="margin-top:0;">Download</a>
+                <button onclick="openPublishModal()" class="gen-movie-btn" style="background:#7000ff; margin:0; padding:15px 30px;">Publish</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-section">
+        <div class="detail-card">
+            <h2><i class="fas fa-waveform"></i> Neural Voice Technology</h2>
+            <p>Hum use kar rahe hain Microsoft Edge-TTS jo deep learning se voice banata hai. Isme saans lene aur pause lene ka tarika bilkul insaano jaisa hota hai.</p>
+        </div>
+    </div>
+</div>
+
+<!-- PUBLISH MODAL -->
+<div id="publishModal" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Publish Movie</h3>
+            <button onclick="closePublishModal()" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <input type="text" id="pubTitle" placeholder="Title">
+            <textarea id="pubDesc" placeholder="Description"></textarea>
+            <input type="text" id="pubTags" placeholder="Tags">
+            <button onclick="submitToGallery()" class="btn-confirm-publish">Publish ✨</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

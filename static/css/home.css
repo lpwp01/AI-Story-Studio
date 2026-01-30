@@ -1,0 +1,117 @@
+/* Home Page Specific Styles */
+
+.hero-container {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3D Animated Headline */
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff007a, #7000ff, #00d4ff, #ff007a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    line-height: 1.2;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 3D Glass Cards Grid */
+.feature-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 35px;
+    padding: 50px 30px;
+    width: 320px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-20px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(255, 0, 122, 0.15);
+    border-color: #ff007a;
+}
+
+.icon-box {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    font-size: 2.5rem;
+}
+
+.card-video .icon-box i { color: #ff007a; }
+.card-image .icon-box i { color: #0081ff; }
+
+.feature-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Floating Action Button */
+.cta-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-video { background: #ff007a; color: white; }
+.btn-image { background: #0081ff; color: white; }
+
+.cta-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .feature-card { width: 100%; }
+}

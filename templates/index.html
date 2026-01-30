@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<!-- Home page ki specific CSS load ho rahi hai -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="hero-container">
+    <!-- Main Headline -->
+    <section>
+        <h1 class="hero-title">Create Magic with <br><span>AI Story Studio</span></h1>
+        <p class="hero-subtitle">
+            Turn your wildest imaginations into HD Cinematic Videos and Stunning Artworks. 
+            Unlimited, Free, and powered by 2025's latest Flux AI.
+        </p>
+    </section>
+
+    <!-- 3D Feature Cards -->
+    <section class="feature-grid">
+        
+        <!-- Video Creator Card -->
+        <div class="feature-card card-video" onclick="location.href='/video-creator'">
+            <div class="icon-box">
+                <i class="fas fa-play-circle"></i>
+            </div>
+            <h3>Video Studio</h3>
+            <p>Write a story, and watch AI generate scenes, voices, and animations automatically into a movie.</p>
+            <span class="cta-btn btn-video">Start Directing</span>
+        </div>
+
+        <!-- Image Creator Card -->
+        <div class="feature-card card-image" onclick="location.href='/image-creator'">
+            <div class="icon-box">
+                <i class="fas fa-wand-magic-sparkles"></i>
+            </div>
+            <h3>Art Gallery</h3>
+            <p>Describe any scene in Hindi or English and get ultra-HD artistic images in seconds.</p>
+            <span class="cta-btn btn-image">Generate Art</span>
+        </div>
+
+    </section>
+
+    <!-- Trust Badges / Why Us -->
+    <section style="margin-top: 100px; display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; opacity: 0.7;">
+        <div style="color: #444;"><i class="fas fa-bolt"></i> Ultra Fast</div>
+        <div style="color: #444;"><i class="fas fa-infinity"></i> No Limits</div>
+        <div style="color: #444;"><i class="fas fa-shield-halved"></i> No API Keys</div>
+        <div style="color: #444;"><i class="fas fa-hd"></i> 4K Quality</div>
+    </section>
+</main>
+{% endblock %}

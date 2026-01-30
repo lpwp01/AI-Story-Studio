@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/image.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="canvas-wrapper">
+    <div class="canvas-container">
+        <h1 class="canvas-title">Art <span style="color: #0081ff;">Gallery</span></h1>
+        <p class="canvas-subtitle">Describe your vision and get stunning AI-generated art.</p>
+
+        <textarea id="imgPrompt" class="art-input" placeholder="A futuristic city in 3D Pixar style..."></textarea>
+        <br>
+        <button onclick="generateImage()" id="genImgBtn" class="magic-btn">
+            <i class="fas fa-wand-sparkles"></i> Generate Magic Art
+        </button>
+
+        <!-- Loader -->
+        <div id="imgLoader" class="artist-loader" style="display:none;">
+            <i class="fas fa-palette fa-spin"></i>
+            <p style="color: #0081ff; font-weight: 600;">AI is painting...</p>
+        </div>
+
+        <!-- Result -->
+        <div id="imageResult" class="art-gallery" style="display:none;">
+            <div class="img-frame">
+                <img id="outputImg" src="" alt="AI Art">
+            </div>
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a id="downloadImgBtn" href="" download class="btn-save" style="margin-top:0;">
+                    <i class="fas fa-download"></i> Save Art
+                </a>
+                <!-- This button only shows here -->
+                <button onclick="openPublishModal()" class="magic-btn" style="margin-top:0; background: #7000ff;">
+                    <i class="fas fa-globe"></i> Post to Gallery
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Content -->
+    <div class="art-knowledge-base">
+        <div class="style-showcase">
+            <h2><i class="fas fa-paint-brush"></i> Creative Styles</h2>
+            <div class="style-grid">
+                <div class="style-item"><b>3D Animation</b></div>
+                <div class="style-item"><b>Cyberpunk</b></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PUBLISH MODAL -->
+<div id="publishModal" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3><i class="fas fa-share-nodes"></i> Post Art</h3>
+            <button onclick="closePublishModal()" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <input type="text" id="pubTitle" placeholder="Art ka naam...">
+            <textarea id="pubDesc" placeholder="Iski detail dalein..."></textarea>
+            <input type="text" id="pubTags" placeholder="Tags (neon, art, 3d)">
+            <button onclick="submitToGallery()" class="btn-confirm-publish" style="background: linear-gradient(45deg, #00d4ff, #7000ff);">Publish Now ✨</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

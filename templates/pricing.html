@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pricing.css') }}">
+<div class="pricing-container">
+    <h1 class="gradient-text">Choose Your Plan</h1>
+    <div class="price-grid">
+        <div class="price-card">
+            <h3>Starter</h3>
+            <div class="price">Free</div>
+            <ul>
+                <li>5 Videos / Month</li>
+                <li>Standard Quality</li>
+                <li>Community Support</li>
+            </ul>
+            <a href="/contact" class="price-btn">Get Started</a>
+        </div>
+        <div class="price-card pro">
+            <div class="badge">Popular</div>
+            <h3>Pro Creator</h3>
+            <div class="price">$19<span>/mo</span></div>
+            <ul>
+                <li>Unlimited Videos</li>
+                <li>Ultra HD 4K Quality</li>
+                <li>Priority Rendering</li>
+            </ul>
+            <a href="/contact" class="price-btn">Upgrade Now</a>
+        </div>
+        <div class="price-card">
+            <h3>Agency</h3>
+            <div class="price">$49<span>/mo</span></div>
+            <ul>
+                <li>Team Access</li>
+                <li>API Support</li>
+                <li>Custom Styles</li>
+            </ul>
+            <a href="/contact" class="price-btn">Contact Sales</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

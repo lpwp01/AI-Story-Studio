@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="about-wrapper">
+    
+    <!-- Section 1: Hero -->
+    <header class="about-hero">
+        <h1>Redefining Creativity</h1>
+        <p>Humne AI Studio ko ek mission ke saath banaya hai: Har insaan ke andar chhupa hua ek director aur ek artist hota hai. Bas use sahi tools ki zarurat hoti hai.</p>
+    </header>
+
+    <!-- Section 2: Info Cards -->
+    <div class="info-grid">
+        <div class="info-card">
+            <i class="fas fa-bolt" style="color: #ffde59;"></i>
+            <h3>Super Fast</h3>
+            <p>2025 ki latest Flux AI technology ka use karke hum images aur videos seconds mein generate karte hain.</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-infinity" style="color: #00d4ff;"></i>
+            <h3>Unlimited Free</h3>
+            <p>Koi subscription nahi, koi hidden fees nahi. Hamara platform hamesha free aur unlimited rahega.</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-shield-alt" style="color: #ff007a;"></i>
+            <h3>No API Required</h3>
+            <p>Aapko kisi API key ya configuration ki tension lene ki zarurat nahi hai. Bas prompt likhein aur start karein.</p>
+        </div>
+    </div>
+
+    <!-- Section 3: Detailed Rows -->
+    <div class="content-row">
+        <div class="row-icon"><i class="fas fa-film"></i></div>
+        <div class="row-text">
+            <h2>Cinematic Storytelling</h2>
+            <p>Hamara Video Creator sirf image nahi banata, wo kahani ko samajhta hai. Har scene ki alag image, uski apni gTTS voiceover aur cinematic 3D zoom effects video ko professional movie jaisa banate hain.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="row-icon" style="color: #ff007a;"><i class="fas fa-palette"></i></div>
+        <div class="row-text">
+            <h2>Digital Art Mastery</h2>
+            <p>Image Generator mein humne 3D Animation styles ko force kiya hai. Aap bas describe karein, aur AI Pixar-style HD visuals taiyar karega jo kisi bhi design project ke liye perfect hain.</p>
+        </div>
+    </div>
+
+    <!-- Section 4: Tech Stack -->
+    <div class="tech-container">
+        <h2 style="font-weight: 800; font-size: 2.5rem; color: #222;">The Tech Behind the Magic</h2>
+        <div class="tech-grid">
+            <span class="tech-tag">Python 3.10+</span>
+            <span class="tech-tag">Flask Web Framework</span>
+            <span class="tech-tag">Flux AI Models</span>
+            <span class="tech-tag">MoviePy Rendering</span>
+            <span class="tech-tag">Google Translator API</span>
+            <span class="tech-tag">gTTS Speech Engine</span>
+            <span class="tech-tag">Glassmorphism UI</span>
+            <span class="tech-tag">Pollinations API</span>
+        </div>
+    </div>
+
+    <!-- Section 5: Closing -->
+    <footer style="margin-top: 80px; text-align: center; opacity: 0.6;">
+        <p>© 2025 AI Story Studio. Handcrafted for Creators by AI Studio.</p>
+    </footer>
+
+</div>
+{% endblock %}

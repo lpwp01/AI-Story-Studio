@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="contact-wrap">
+    <div class="contact-box">
+        <h1 class="gradient-text">Let's Connect</h1>
+        <p>Koi help chahiye ya feedback? Hamein message karein!</p>
+        
+        <form class="contact-form">
+            <input type="text" placeholder="Aapka Naam" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Apna Message likhein..."></textarea>
+            <button type="submit" class="colorful-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+</div>
+{% endblock %}

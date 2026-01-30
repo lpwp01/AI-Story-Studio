@@ -1,0 +1,106 @@
+/* About Page Specific Styles - Comprehensive Layout */
+
+.about-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.about-hero {
+    text-align: center;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+    border: 1px solid white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #ff007a, #0081ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+.about-hero p {
+    font-size: 1.3rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 3-Column Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+    transition: 0.3s;
+}
+
+.info-card:hover { transform: translateY(-10px); }
+
+.info-card i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Feature Row (Left-Right Pattern) */
+.content-row {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    border-radius: 40px;
+    margin-bottom: 30px;
+    border: 1px solid white;
+}
+
+.content-row:nth-child(even) { flex-direction: row-reverse; }
+
+.row-text { flex: 1; padding: 20px; text-align: left; }
+.row-icon { 
+    flex: 0 0 150px; 
+    font-size: 5rem; 
+    text-align: center; 
+    color: #00d4ff; 
+    opacity: 0.8;
+}
+
+/* Tech Stack Section */
+.tech-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.tech-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.tech-tag {
+    background: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    color: #333;
+    border: 1px solid #ffde59;
+}

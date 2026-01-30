@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="gallery-wrapper">
+    <div class="gallery-header">
+        <h1 class="gradient-text"><i class="fas fa-clapperboard"></i> AI Video Gallery</h1>
+        <p style="color: #666;">Cinematic stories brought to life by AI Studio.</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="videoSearch" class="search-input" placeholder="Search videos..." onkeyup="filterVideos()">
+    </div>
+
+    <div class="gallery-grid" id="videoGrid">
+        {% if items %}
+            {% for item in items %}
+            <div class="gallery-item video-card">
+                <div class="media-container">
+                    <!-- Muted autoplay on hover for video feel -->
+                    <video src="{{ item.file_url }}" controls preload="metadata" style="background: #000;"></video>
+                </div>
+                <div class="gallery-info">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                    <div class="tags-wrap">
+                        {% for tag in item.tags.split(',') %}
+                        <span class="tag">#{{ tag.strip() }}</span>
+                        {% endfor %}
+                    </div>
+                    <span class="date-stamp"><i class="far fa-clock"></i> {{ item.timestamp }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div style="grid-column: 1/-1; padding: 100px; text-align: center;">
+                <i class="fas fa-film fa-4x" style="color: #ccc;"></i>
+                <h3 style="color: #888; margin-top: 20px;">Koi videos nahi mili. Story banayein aur publish karein!</h3>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function filterVideos() {
+    let input = document.getElementById('videoSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('video-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector('h3').innerText.toLowerCase();
+        let tags = cards[i].querySelector('.tags-wrap').innerText.toLowerCase();
+
+        if (title.includes(input) || tags.includes(input)) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+{% endblock %}

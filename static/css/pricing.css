@@ -1,0 +1,166 @@
+/* AI Studio Pricing - Vibrant & 3D Glass Theme */
+
+.pricing-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 3D Animated Headline */
+.gradient-text {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff007a, #00d4ff, #7000ff, #ff007a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    margin-bottom: 50px;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* Price Grid */
+.price-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+/* Price Card Base */
+.price-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+    padding: 50px 30px;
+    width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.price-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Highlighting Pro Plan */
+.price-card.pro {
+    border: 3px solid #ff007a;
+    transform: scale(1.08);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 60px rgba(255, 0, 122, 0.15);
+}
+
+.price-card.pro:hover {
+    transform: scale(1.1) translateY(-10px);
+}
+
+/* Popular Badge */
+.badge {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: #ff007a;
+    color: white;
+    padding: 8px 40px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(255,0,122,0.3);
+}
+
+/* Text & Pricing */
+.price-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #222;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.price span {
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: 600;
+}
+
+/* Feature List */
+.price-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    text-align: left;
+}
+
+.price-card ul li {
+    padding: 12px 0;
+    color: #555;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.price-card ul li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #00ff88;
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+/* Action Button */
+.price-btn {
+    display: block;
+    padding: 18px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    color: white;
+    background: #444;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-card.pro .price-btn {
+    background: linear-gradient(45deg, #ff007a, #7000ff);
+    box-shadow: 0 10px 20px rgba(255, 0, 122, 0.3);
+}
+
+.price-card:not(.pro) .price-btn {
+    background: #00d4ff;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+}
+
+.price-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .price-card.pro { transform: scale(1); }
+    .price-card { width: 100%; margin-bottom: 20px; }
+}
